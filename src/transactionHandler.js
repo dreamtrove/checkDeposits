@@ -16,7 +16,7 @@ module.exports.transactionHandler = async trx => {
       trx.data[0].token.outputs.forEach(el => {
         if (el.address !== fromAddress) {
           toAddress = el.address;
-          amount = parseInt(el.amount);
+          amount = el.amount; //          amount = parseInt(el.amount);
         }
       });
       console.log("Checking if toAddress includes in db: ", toAddress);
