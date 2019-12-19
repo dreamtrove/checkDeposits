@@ -56,12 +56,13 @@ const updateSession = async (userId, trx, amount) => {
 
   let deposits = session.wallet.transferedDeposits;
 
+  amount=parseFloat(amount);
   deposits.transactions.push(trx);
   deposits.totalReceived += amount;
   deposits.txAppearances = deposits.transactions.length;
 
   // Update Session
-  session.wallet.honkPoints = 8.5 // += parseFloat(amount);
+  session.wallet.honkPoints = parseFloat(session.wallet.honkPoints+amount);
   session.wallet.transferedDeposits = deposits;
   
   
